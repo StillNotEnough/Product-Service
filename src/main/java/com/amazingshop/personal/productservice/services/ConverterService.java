@@ -1,6 +1,6 @@
 package com.amazingshop.personal.productservice.services;
 
-import com.amazingshop.personal.productservice.dto.ProductDTO;
+import com.amazingshop.personal.productservice.dto.requests.ProductDTO;
 import com.amazingshop.personal.productservice.models.Product;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;

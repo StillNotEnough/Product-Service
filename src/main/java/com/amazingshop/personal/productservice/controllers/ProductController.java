@@ -1,9 +1,9 @@
 package com.amazingshop.personal.productservice.controllers;
 
-import com.amazingshop.personal.productservice.dto.ProductDTO;
+import com.amazingshop.personal.productservice.dto.requests.ProductDTO;
 import com.amazingshop.personal.productservice.models.Product;
 import com.amazingshop.personal.productservice.services.ConverterService;
-import com.amazingshop.personal.productservice.util.responses.ProductResponse;
+import com.amazingshop.personal.productservice.dto.responses.ProductResponse;
 import com.amazingshop.personal.productservice.services.ProductService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

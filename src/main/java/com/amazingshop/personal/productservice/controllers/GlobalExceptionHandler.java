@@ -1,6 +1,6 @@
 package com.amazingshop.personal.productservice.controllers;
 
-import com.amazingshop.personal.productservice.util.responses.ErrorResponse;
+import com.amazingshop.personal.productservice.dto.responses.ErrorResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

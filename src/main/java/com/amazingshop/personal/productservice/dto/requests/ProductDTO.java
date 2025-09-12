@@ -1,8 +1,5 @@
-package com.amazingshop.personal.productservice.dto;
+package com.amazingshop.personal.productservice.dto.requests;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
