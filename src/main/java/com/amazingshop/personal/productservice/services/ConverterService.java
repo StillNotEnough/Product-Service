@@ -1,5 +1,6 @@
 package com.amazingshop.personal.productservice.services;
 
+import com.amazingshop.personal.productservice.dto.requests.ProductRequest;
 import com.amazingshop.personal.productservice.dto.requests.ProductDTO;
 import com.amazingshop.personal.productservice.models.Product;
 import org.modelmapper.ModelMapper;
@@ -25,5 +26,9 @@ public class ConverterService {
 
     public ProductDTO convertedToProductDTO(Product product) {
         return modelMapper.map(product, ProductDTO.class);
+    }
+
+    public Product convertedToProduct(ProductRequest productRequest) {
+        return modelMapper.map(productRequest, Product.class);
     }
 }
