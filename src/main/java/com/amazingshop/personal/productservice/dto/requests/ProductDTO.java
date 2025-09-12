@@ -1,15 +1,12 @@
 package com.amazingshop.personal.productservice.dto.requests;
 
 import jakarta.validation.constraints.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.math.BigDecimal;
 
-@Setter
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProductDTO {
@@ -28,9 +25,4 @@ public class ProductDTO {
     @Min(value = 0, message = "Stock must be at least 0")
     private Integer stock;
 
-    public ProductDTO(String name, BigDecimal price, Integer stock) {
-        this.name = name;
-        this.price = price;
-        this.stock = stock;
-    }
 }
