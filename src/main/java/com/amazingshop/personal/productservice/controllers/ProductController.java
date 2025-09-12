@@ -1,23 +1,22 @@
 package com.amazingshop.personal.productservice.controllers;
 
+import com.amazingshop.personal.productservice.dto.requests.ProductRequest;
 import com.amazingshop.personal.productservice.dto.requests.ProductDTO;
 import com.amazingshop.personal.productservice.models.Product;
 import com.amazingshop.personal.productservice.services.ConverterService;
 import com.amazingshop.personal.productservice.dto.responses.ProductResponse;
 import com.amazingshop.personal.productservice.services.ProductService;
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Slf4j
 @RestController
 @RequestMapping("/products")
-@Slf4j
 public class ProductController {
 
     private final ProductService productService;
@@ -43,5 +42,14 @@ public class ProductController {
                 .toList();
         log.info("All products requested, count: {}", productDTOs.size());
         return ResponseEntity.ok(new ProductResponse(productDTOs));
+    }
+
+    @PostMapping
+    public ResponseEntity<ProductDTO> createProduct(@Valid @RequestBody ProductRequest request){
+
+        log.info("Creating product: {}", request);
+        Product product = converterService.convertedToProduct(request);
+        Product savedProduct = productService.save(product);
+        return ResponseEntity.ok(converterService.convertedToProductDTO(savedProduct));
     }
 }
