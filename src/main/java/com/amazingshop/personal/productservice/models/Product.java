@@ -2,9 +2,7 @@ package com.amazingshop.personal.productservice.models;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -12,12 +10,15 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-@Data
+
 @Entity
+@Getter
+@Setter
 @Table(name = "Product")
 @EntityListeners(AuditingEntityListener.class)
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode(exclude = {"id", "createdAt", "updatedAt"})
 public class Product {
 
     @Id
