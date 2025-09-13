@@ -14,10 +14,11 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @Setter
+@Builder
 @Table(name = "Product")
 @EntityListeners(AuditingEntityListener.class)
-@AllArgsConstructor
-@NoArgsConstructor
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @EqualsAndHashCode(exclude = {"id", "createdAt", "updatedAt"})
 public class Product {
 
