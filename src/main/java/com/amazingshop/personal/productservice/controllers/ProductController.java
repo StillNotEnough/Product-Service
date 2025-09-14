@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
 import java.util.List;
 
 @Slf4j
@@ -50,6 +51,7 @@ public class ProductController {
         log.info("Creating product: {}", request);
         Product product = converterService.convertedToProduct(request);
         Product savedProduct = productService.save(product);
-        return ResponseEntity.ok(converterService.convertedToProductDTO(savedProduct));
+        return ResponseEntity.created(URI.create("/api/v1/products/" + savedProduct.getId())).
+                body(converterService.convertedToProductDTO(savedProduct));
     }
 }
