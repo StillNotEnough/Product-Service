@@ -2,6 +2,7 @@ package com.amazingshop.personal.productservice.services;
 
 import com.amazingshop.personal.productservice.models.Product;
 import com.amazingshop.personal.productservice.repositories.ProductRepository;
+import com.amazingshop.personal.productservice.util.exceptions.ProductNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,7 +24,7 @@ public class ProductService {
 
     public Product findProductByIdOrThrow(Long productId) {
         return productRepository.findById(productId).orElseThrow(() ->
-                new IllegalArgumentException("Товар с ID " + productId + " не найден"));
+                new ProductNotFoundException("Товар с ID " + productId + " не найден"));
     }
 
     public List<Product> findAll() {
