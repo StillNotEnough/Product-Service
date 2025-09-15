@@ -37,7 +37,7 @@ public class ConverterServiceTest {
     void shouldConvertProductRequestToProduct(){
         // Arrange (подготовка)
         ProductRequest request = ProductRequest.builder()
-                .name("Iphone")
+                .name("Smartphone")
                 .price(BigDecimal.valueOf(999))
                 .stock(15)
                 .build();

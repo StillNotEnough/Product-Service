@@ -2,6 +2,7 @@ package com.amazingshop.personal.productservice.services;
 
 import com.amazingshop.personal.productservice.models.Product;
 import com.amazingshop.personal.productservice.repositories.ProductRepository;
+import com.amazingshop.personal.productservice.util.exceptions.ProductNotFoundException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -48,7 +49,7 @@ public class ProductServiceTest {
         Long productId = 99L;
         when(productRepository.findById(productId)).thenReturn(Optional.empty());
 
-        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () ->
+        ProductNotFoundException exception = assertThrows(ProductNotFoundException.class, () ->
                 productService.findProductByIdOrThrow(99L));
 
         assertThat(exception.getMessage()).contains("Товар с ID 99 не найден");
